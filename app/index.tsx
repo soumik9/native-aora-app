@@ -4,8 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
     return (
         <View style={styles.container}>
-            <Text className="text-5xl" style={{ color: 'red' }}>
-                Hey bro! whats appaaaaaaaaaaaa sadasdr
+            <Text className="text-5xl font-pblack" style={{ color: 'red' }}>
+                Aora
             </Text>
             <StatusBar style="auto" />
         </View>
