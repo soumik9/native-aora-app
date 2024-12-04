@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -8,6 +9,8 @@ export default function App() {
                 Aora
             </Text>
             <StatusBar style="auto" />
+
+            <Link href="/profile" className='text-6xl'>Profile</Link>
         </View>
     );
 }
