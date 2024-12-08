@@ -1,7 +1,9 @@
+import CustomButton from '@/components/button/CustomButton';
 import { images } from '@/services';
-import { Link } from 'expo-router';
+import { signInRoute } from '@/services/constant';
+import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
@@ -10,7 +12,7 @@ export default function App() {
             <ScrollView
                 contentContainerClassName="h-full"
             >
-                <View className='w-full justify-center items-center h-full px-4'>
+                <View className='w-full justify-center items-center min-h-[85vh] px-4'>
 
                     <Image
                         source={images.logo}
@@ -43,8 +45,15 @@ export default function App() {
                         Where creativity meets innovation: embark on a journey of endless possibilities with Aora.
                     </Text>
 
+                    <CustomButton
+                        title="Continue with Email"
+                        handlePress={() => router.push(signInRoute)}
+                        containerStyles="mt-7 w-full"
+                    />
                 </View>
             </ScrollView>
+
+            <StatusBar backgroundColor='#161622' style='light' />
         </SafeAreaView>
     );
 }
