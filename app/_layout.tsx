@@ -8,6 +8,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
 
+    // Load any resources or data that we need prior to rendering the app
     const [fontsLoaded, error] = useFonts({
         "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
         "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
@@ -20,6 +21,7 @@ export default function RootLayout() {
         "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
     });
 
+    // Hide the splash screen when the fonts are loaded.
     useEffect(() => {
         if (error) throw error;
 
@@ -28,15 +30,20 @@ export default function RootLayout() {
         }
     }, [fontsLoaded, error]);
 
+    // If the fonts are not loaded, we don't render the app.
     if (!fontsLoaded) {
         return null;
     }
 
+    // If the fonts are loaded, we render the app.
     if (!fontsLoaded && !error) {
         return null;
     }
 
     return <Stack>
         <Stack.Screen name='index' options={{ headerShown: false }} />
+        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        {/* <Stack.Screen name='/search/[query]' options={{ headerShown: false }} /> */}
     </Stack>;
 }
