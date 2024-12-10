@@ -1,6 +1,5 @@
 import { View, Text, TextInput } from 'react-native'
 import React from 'react'
-
 const InputField = ({ title, value, placeholder, handleChangeText, containerStyles, ...props }: any) => {
     return (
         <View className={`flex-col gap-2 ${containerStyles}`}>

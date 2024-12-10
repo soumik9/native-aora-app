@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from '@/services'
 import InputField from '@/components/forms/InputField'
-
 const SignIn = () => {
 
     const [form, setForm] = useState({ email: '', password: '' })
