@@ -1,8 +1,10 @@
-import { View } from 'react-native'
+import { Text, View } from 'react-native'
 import React, { useState } from 'react'
 import InputField from '@/components/forms/InputField'
 import CustomButton from '@/components/button/CustomButton'
 import AuthLayout from '@/components/shared/authLayout/AuthLayout'
+import { Link } from 'expo-router'
+import { signUpRoute } from '@/services/constant'
 
 const SignIn = () => {
 
@@ -35,6 +37,15 @@ const SignIn = () => {
                     handlePress={handleLogin}
                     containerStyles="mt-7"
                 />
+
+                <View className='justify-center flex-row gap-2'>
+                    <Text className="text-lg text-gray-100 font-pregular">
+                        Don't have an account?
+                    </Text>
+                    <Link href={signUpRoute} className='text-lg font-psemibold text-secondary'>
+                        Sign Up
+                    </Link>
+                </View>
             </View>
         </AuthLayout>
     )
