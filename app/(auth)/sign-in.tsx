@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from '@/services'
 import InputField from '@/components/forms/InputField'
+import CustomButton from '@/components/button/CustomButton'
 const SignIn = () => {
 
     const [form, setForm] = useState({ email: '', password: '' })
@@ -49,6 +50,12 @@ const SignIn = () => {
                             autoCapitalize="none"
                         />
                     </View>
+
+                    <CustomButton
+                        title="Sign In"
+                        // handlePress={() => router.push(signInRoute)}
+                        containerStyles="mt-7 w-full"
+                    />
 
                 </View>
             </ScrollView>
