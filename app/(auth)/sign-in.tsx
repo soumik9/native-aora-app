@@ -1,65 +1,42 @@
-import { View, Text, ScrollView, Image } from 'react-native'
+import { View } from 'react-native'
 import React, { useState } from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { images } from '@/services'
 import InputField from '@/components/forms/InputField'
 import CustomButton from '@/components/button/CustomButton'
+import AuthLayout from '@/components/shared/authLayout/AuthLayout'
+
 const SignIn = () => {
 
-    const [form, setForm] = useState({ email: '', password: '' })
+    const [form, setForm] = useState({ email: '', password: '' });
+
+    const handleLogin = () => {
+        console.log(form)
+    }
 
     return (
-        <SafeAreaView className='bg-primary h-full'>
-            <ScrollView>
-                <View className='w-full justify-center items-center min-h-[85vh] px-4 my-6'>
+        <AuthLayout>
+            <View className='space-y-4 flex-col gap-6 my-12 w-full px-4'>
+                <InputField
+                    title="Email"
+                    value={form.email}
+                    handleChangeText={(e: any) => setForm({ ...form, email: e })}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                />
 
-                    <Image
-                        source={images.logo}
-                        className='w-[130px] h-[84px]'
-                        resizeMode='contain'
-                    />
+                <InputField
+                    title="Password"
+                    value={form.password}
+                    handleChangeText={(e: any) => setForm({ ...form, password: e })}
+                    autoCapitalize="none"
+                />
 
-                    <View className='relative'>
-                        <Text className='text-3xl text-white font-bold text-center max-w-[290px]'>
-                            Log In to{" "}
-                            <Text className='text-secondary-200'>
-                                Aora
-                            </Text>
-                        </Text>
-
-                        <Image
-                            source={images.path}
-                            className='w-[70px] h-[15px] absolute -bottom-2 -right-1'
-                            resizeMode='contain'
-                        />
-                    </View>
-
-                    <View className='space-y-4 flex-col gap-6 my-12 w-full px-4'>
-                        <InputField
-                            title="Email"
-                            value={form.email}
-                            handleChangeText={(e: any) => setForm({ ...form, email: e })}
-                            keyboardType="email-address"
-                            autoCapitalize="none"
-                        />
-
-                        <InputField
-                            title="Password"
-                            value={form.password}
-                            handleChangeText={(e: any) => setForm({ ...form, password: e })}
-                            autoCapitalize="none"
-                        />
-                    </View>
-
-                    <CustomButton
-                        title="Sign In"
-                        // handlePress={() => router.push(signInRoute)}
-                        containerStyles="mt-7 w-full"
-                    />
-
-                </View>
-            </ScrollView>
-        </SafeAreaView>
+                <CustomButton
+                    title="Sign In"
+                    handlePress={handleLogin}
+                    containerStyles="mt-7"
+                />
+            </View>
+        </AuthLayout>
     )
 }
 
